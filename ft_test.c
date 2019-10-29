@@ -6,7 +6,7 @@
 /*   By: hbaudet <hbaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 15:38:39 by hbaudet           #+#    #+#             */
-/*   Updated: 2019/10/29 09:36:51 by hbaudet          ###   ########.fr       */
+/*   Updated: 2019/10/29 12:04:53 by hbaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ int	main(int ac, char *av[])
 	int				val;
 	unsigned char	ch;
 	int				(*ptr)(const char *, ...);
+	unsigned long	tmp;
 
+	tmp = 140732898131832;
+	//printf("\n\npointeur :\t\t|%p\n\n", (void *)tmp);
 	i = 1;
 	(void)ac;
 	ch = 0;
@@ -52,16 +55,16 @@ int	main(int ac, char *av[])
 		c[val - 1][i] = ptr("%d\t%%*c\t\t\t: |%*c|\n", i, -4, 'g'); i++;
 		c[val - 1][i] = ptr("%d\t%%05c\t\t: |%05c|\n", i, 42); i++;
 		ptr("\n\nPOINTERS : \n");
-		c[val - 1][i] = ptr("%d\t%%-27p\t\t: |%-27p|\n", i, &u); i++;
-		c[val - 1][i] = ptr("%d\t%%-*p\t\t: |%-*p|\n", i, 18, &u); i++;
-		c[val - 1][i] = ptr("%d\t%%14p\t\t: |%14p|\n", i, &u); i++;
-		c[val - 1][i] = ptr("%d\t%%2p\t\t\t: |%2p|\n", i, &u); i++;
-		c[val - 1][i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 18, &u); i++;
-		c[val - 1][i] = ptr("%d\t%%p\t\t\t: |%p|\n", i, &u); i++;
-		c[val - 1][i] = ptr("%d\t%%023p\t\t: |%023p|\n", i, &u); i++;
-		c[val - 1][i] = ptr("%d\t%%24p\t\t: |%24p|\n", i, &u); i++;
-		c[val - 1][i] = ptr("%d\t%%-24p\t\t: |%-24p|\n", i, &u); i++;
-		c[val - 1][i] = ptr("%d\t%%-023p\t\t: |%-023p|\n", i, &u); i++;
+		c[val - 1][i] = ptr("%d\t%%-27p\t\t: |%-27p|\n", i, (void *)tmp); i++;
+		c[val - 1][i] = ptr("%d\t%%-*p\t\t: |%-*p|\n", i, 18, (void *)tmp); i++;
+		c[val - 1][i] = ptr("%d\t%%14p\t\t: |%14p|\n", i, (void *)tmp); i++;
+		c[val - 1][i] = ptr("%d\t%%2p\t\t\t: |%2p|\n", i, (void *)tmp); i++;
+		c[val - 1][i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 18, (void *)tmp); i++;
+		c[val - 1][i] = ptr("%d\t%%p\t\t\t: |%p|\n", i, (void *)tmp); i++;
+		c[val - 1][i] = ptr("%d\t%%023p\t\t: |%023p|\n", i, (void *)tmp); i++;
+		c[val - 1][i] = ptr("%d\t%%24p\t\t: |%24p|\n", i, (void *)tmp); i++;
+		c[val - 1][i] = ptr("%d\t%%-24p\t\t: |%-24p|\n", i, (void *)tmp); i++;
+		c[val - 1][i] = ptr("%d\t%%-023p\t\t: |%-023p|\n", i, (void *)tmp); i++;
 		c[val - 1][i] = ptr("%d\t%%-27p\t\t: |%-27p|\n", i, NULL); i++;
 		c[val - 1][i] = ptr("%d\t%%-*p\t\t: |%-*p|\n", i, 18, NULL); i++;
 		c[val - 1][i] = ptr("%d\t%%14p\t\t: |%14p|\n", i, NULL); i++;
@@ -176,7 +179,7 @@ int	main(int ac, char *av[])
 		c[val - 1][i] = ptr("%d\t%%-*s\t\t: |%-*s|\n", i, 0, str); i++;
 		c[val - 1][i] = ptr("%d\t%%010s\t\t: |%010s| is a string\n", i, "this"); i++;
 		c[val - 1][i] = ptr("%d\t%%-010s\t\t: |%-010s| is a string\n", i, "this"); i++;
-		c[val - 1][i] = ptr("%d\t%%-010s\t\t: |%-010s| is a &u string\n", i, NULL); i++;
+		c[val - 1][i] = ptr("%d\t%%-010s\t\t: |%-010s| is a (void *)tmp string\n", i, NULL); i++;
 		c[val - 1][i] = ptr("%d\t%%s\t\t\t: Hello 42 school! |%s|\n", i, NULL); i++;
 		ptr("\n\n%% : \n");
 		c[val - 1][i] = ptr("%d\t%%5%%\t\t\t: |%5%|\n", i); i++;
