@@ -32,13 +32,18 @@ else
 	if [ "$WC" = "22" ]
 	then
 		echo -e "\033[0;31mONLY POINTERS ADRESSES DIFFER, FORMATING IS GOOD\n\n\t\033[0;32m=>\tALL OTHER TESTS OK\033[0m"
-		printf "\t\t\t\t\t\t\t\t\tgithub/hbaudet\n"
 	elif [ "$DIFF" = "" ]
 	then
 		echo -e "\033[0;32mALL TESTS OK\033[0m"
-		printf "\t\t\t\t\t\t\t\t\tgithub/hbaudet\n"
 	else
 		echo -e "\033[0;31m\t\t\tGRADE : KO.\n\nCheck results.log for details :\033[0m"
 		cat results.log
 	fi
+	printf "             /|_
+            /  ,\     
+         .-'   _,'  < QUACK!
+        / _   |
+       /   )_ |
+   ,=='\`.____)_)"
+		printf "\t\t\t\t\t\t\t\t\tgithub/hbaudet\n"
 fi
