@@ -14,9 +14,9 @@ else
 	fi
 	if [ "$1" = "bonus" ]
 	then
-		gcc -Wall -Werror -Wextra "$var" -D BONUS ft_test.c libftprintf.a -o ft_test_printf.out
+		gcc -Wall -Werror -Wextra "$var" -D BONUS ft_test_printf.c libftprintf.a -o ft_test_printf.out
 	else
-		gcc -Wall -Werror -Wextra "$var" ft_test.c libftprintf.a -o ft_test_printf.out
+		gcc -Wall -Werror -Wextra "$var" ft_test_printf.c libftprintf.a -o ft_test_printf.out
 	fi
 	if [ "$1" = "char" ]
 	then
