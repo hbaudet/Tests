@@ -6,7 +6,7 @@
 /*   By: hbaudet <hbaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 13:44:55 by hbaudet           #+#    #+#             */
-/*   Updated: 2019/10/30 12:01:34 by hbaudet          ###   ########.fr       */
+/*   Updated: 2019/10/30 12:09:54 by hbaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "get_next_line_bonus.h"
 #include "get_next_line.h"
 #include <string.h>
+#include <fcntl.h>
 
 
 int	main(int ac, char *av[])
@@ -80,6 +81,6 @@ int	main(int ac, char *av[])
 		}
 		free(line);
 	}
-	printf("             /|_\n            /  ,\\     \n         .-'   _,'  < QUACK!\n        / _   |\n       /   )_ |\n   ,=='`.____)_)\n\t\t\t\t\t\t\t\t\tgithub/hbaudet\n");
+	printf("\n             /|_\n            /  ,\\     \n         .-'   _,'  < QUACK!\n        / _   |\n       /   )_ |\n   ,=='`.____)_)\n\t\t\t\t\t\t\t\t\tgithub/hbaudet\n");
 	return (0);
 }
