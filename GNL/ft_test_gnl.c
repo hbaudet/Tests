@@ -6,17 +6,17 @@
 /*   By: hbaudet <hbaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 13:44:55 by hbaudet           #+#    #+#             */
-/*   Updated: 2019/10/30 11:55:44 by hbaudet          ###   ########.fr       */
+/*   Updated: 2019/10/30 12:01:34 by hbaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-//#include "get_next_line_bonus.h"
-//#include "get_next_line.h"
+#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 #include <string.h>
 
 
-int	main(int ac, char *av[])		//test bonus
+int	main(int ac, char *av[])
 {
 	char	bis[] = "this is a string";
 	char	*line;
