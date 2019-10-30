@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_test.c                                          :+:      :+:    :+:   */
+/*   ft_test_gnl.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbaudet <hbaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 13:44:55 by hbaudet           #+#    #+#             */
-/*   Updated: 2019/10/30 10:57:38 by hbaudet          ###   ########.fr       */
+/*   Updated: 2019/10/30 11:21:02 by hbaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	main(int ac, char *av[])		//test bonus
 	if (ac == 1)
 	{
 		while ((gnl = (get_next_line(0, ptr))) == 1)
-			printf("%s%d\n", line, gnl);
-		printf("%s%d", line, gnl);
+			printf("%d%s\n", gnl, line);
+		printf("%d%s", gnl, line);
 	}
 	else if (ac == 2)
 	{
