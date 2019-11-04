@@ -6,13 +6,12 @@
 /*   By: hbaudet <hbaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 13:44:55 by hbaudet           #+#    #+#             */
-/*   Updated: 2019/10/30 12:09:54 by hbaudet          ###   ########.fr       */
+/*   Updated: 2019/11/04 09:44:54 by hbaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "get_next_line_bonus.h"
-#include "get_next_line.h"
 #include <string.h>
 #include <fcntl.h>
 
@@ -29,23 +28,32 @@ int	main(int ac, char *av[])
 
 	j = 1;
 	i = 1;
-	if (!(line = malloc(sizeof(char) * 18)))
-		return (-1);
 	ptr = &line;
-	line = strncpy(line, bis, 17);
+	line = bis;
 	if (ac == 1)
 	{
 		while ((gnl = (get_next_line(0, ptr))) == 1)
-			printf("%d%s\n", gnl, line);
-		printf("%d%s", gnl, line);
+		{
+			printf("lecture en cours :\t%d%s\n", gnl, line);
+			free(line);
+		}
+		printf("derniere ligne :\t%d%s", gnl, line);
+		free(line);
 	}
 	else if (ac == 2)
 	{
 		if (!(fd[i] = open(av[i], O_RDONLY)))
 			return (-1);
-		while ((gnl = (get_next_line(fd[i], ptr))) == 1)
-			printf("%d%s\n", gnl, line);
-		printf("%d%s", gnl, line);
+		printf("fd : %d\n", fd[i]);
+		while ((gnl = (get_next_line(fd[i], ptr))) >= 1)
+		{
+			printf("lecture en cours :\t%d-%s\n", gnl, line);
+			if (BUFFER_SIZE > 0)
+				free(line);
+		}
+		printf("derniere ligne :\t%d-%s", gnl, line);
+		if (BUFFER_SIZE > 0)
+			free(line);
 	}
 	else
 	{
@@ -63,6 +71,7 @@ int	main(int ac, char *av[])
 			{
 				gnl = get_next_line(fd[i], &line);
 				printf("%d%s\n", gnl, line);
+				free(line);
 				i++;
 			}
 			printf("\n\n");
@@ -73,14 +82,18 @@ int	main(int ac, char *av[])
 		{
 			printf("End of %s\n", av[i]);
 			while ((gnl = (get_next_line(fd[i], ptr))))
-				printf("%d%s\n", gnl, line);
-			printf("%d%s", gnl, line);
+			{
+				printf("lecture en cours :\t%d%s\n", gnl, line);
+				free(line);
+			}
+			printf("derniere ligne :\t%d%s", gnl, line);
+			free(line);
 			close(fd[i]);
 			i++;
 			printf("-------------\n\n");
 		}
-		free(line);
 	}
-	printf("\n             /|_\n            /  ,\\     \n         .-'   _,'  < QUACK!\n        / _   |\n       /   )_ |\n   ,=='`.____)_)\n\t\t\t\t\t\t\t\t\tgithub/hbaudet\n");
+	printf("\n\n\n             /|_\n            /  ,\\     \n         .-'   _,'  < QUACK!\n        / _   |\n       /   )_ |\n   ,=='`.____)_)\n\t\t\t\t\t\t\t\t\tgithub/hbaudet\n");
+	//while (1);
 	return (0);
 }
