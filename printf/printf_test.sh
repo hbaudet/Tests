@@ -27,16 +27,20 @@ else
 	DIFF=$(diff result_ori.txt result_copy.txt)
 	if [ "$DIFF" = "" ]
 	then
-		echo -e "\033[0;32mALL TESTS OK\033[0m"
-	else
-		echo -e "\033[0;31m\t\t\tGRADE : KO.\n\nCheck results.log for details :\033[0m"
-		cat results.log
-	fi
-	printf "             /|_
+		printf "\n             /|_
             /  ,\     
-         .-'   _,'  < QUACK!
+         .-'   _,'  < \033[0;32mALL TESTS OK\033[0m\t\t\t\t\tQUACK!
         / _   |
        /   )_ |
-   ,=='\`.____)_)"
+   ,=='\`.____)_)\n"
+	else
+		printf "\n             /|_
+            /  ,\     
+         .-'   _,'  < \033[0;31mHaha! KO.\tCheck results.log for details :\033[0m\t\tQUACK!
+        / _   |
+       /   )_ |
+   ,=='\`.____)_)\n"
+		cat results.log
+	fi
 		printf "\t\t\t\t\t\t\t\t\tgithub/hbaudet\n"
 fi
