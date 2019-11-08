@@ -1,5 +1,6 @@
 rm results.log result_ori.txt result_copy.txt ft_test_printf.out 2> /dev/null
-if [ "$1" = "clean" ] || [ "$2" = "clean" ] || [ "$3" = "clean" ] || [ "$4" = "clean" ] || [ "$5" = "clean" ] || [ "$6" = "clean" ] 
+if [ "$1" = "clean" ] || [ "$2" = "clean" ] || [ "$3" = "clean" ] || [ "$4" = "clean" ] || [ "$5" = "clean" ] || [ "$6" = "clean" ]
+
 then
 	make fclean > /dev/null
 else
@@ -8,13 +9,13 @@ else
 	then
 		var="-fsanitize=address"
 	fi
-	if [ "$1" = "bonus" ] || [ "$2" = "bonus" ] || [ "$3" = "bonus" ] || [ "$4" = "bonus" ] || [ "$5" = "bonus" ] || 
+	if [ "$1" = "bonus" ] || [ "$2" = "bonus" ] || [ "$3" = "bonus" ] || [ "$4" = "bonus" ] || [ "$5" = "bonus" ]
 	then
 		gcc -Wall -Werror -Wextra "$var" -D BONUS ft_test_printf.c libftprintf.a -o ft_test_printf.out
 	else
 		gcc -Wall -Werror -Wextra "$var" ft_test_printf.c libftprintf.a -o ft_test_printf.out
 	fi
-	if [ "$1" = "char" ] || [ "$2" = "char" ] || [ "$3" = "char" ] || [ "$4" = "char" ] || [ "$5" = "char" ] || 
+	if [ "$1" = "char" ] || [ "$2" = "char" ] || [ "$3" = "char" ] || [ "$4" = "char" ] || [ "$5" = "char" ]
 	then
 		./ft_test_printf.out 1 1 > result_ori.txt
 		./ft_test_printf.out 2 1 > result_copy.txt
