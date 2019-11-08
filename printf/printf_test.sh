@@ -1,24 +1,20 @@
 rm results.log result_ori.txt result_copy.txt ft_test_printf.out 2> /dev/null
-if [ "$1" = "clean" ]
+if [ "$1" = "clean" ] || [ "$2" = "clean" ] || [ "$3" = "clean" ] || [ "$4" = "clean" ] || [ "$5" = "clean" ] || [ "$6" = "clean" ] 
 then
 	make fclean > /dev/null
 else
 	make > /dev/null
-	if [ "$2" = "fsan" ]
+	if [ "$1" = "fsan" ] || [ "$2" = "fsan" ] || [ "$3" = "fsan" ] || [ "$4" = "fsan" ] || [ "$5" = "fsan" ]
 	then
 		var="-fsanitize=address"
 	fi
-	if [ "$1" = "fsan" ]
-	then
-		var="-fsanitize=address"
-	fi
-	if [ "$1" = "bonus" ]
+	if [ "$1" = "bonus" ] || [ "$2" = "bonus" ] || [ "$3" = "bonus" ] || [ "$4" = "bonus" ] || [ "$5" = "bonus" ] || 
 	then
 		gcc -Wall -Werror -Wextra "$var" -D BONUS ft_test_printf.c libftprintf.a -o ft_test_printf.out
 	else
 		gcc -Wall -Werror -Wextra "$var" ft_test_printf.c libftprintf.a -o ft_test_printf.out
 	fi
-	if [ "$1" = "char" ]
+	if [ "$1" = "char" ] || [ "$2" = "char" ] || [ "$3" = "char" ] || [ "$4" = "char" ] || [ "$5" = "char" ] || 
 	then
 		./ft_test_printf.out 1 1 > result_ori.txt
 		./ft_test_printf.out 2 1 > result_copy.txt
@@ -27,12 +23,8 @@ else
 		./ft_test_printf.out 2 0 > result_copy.txt
 	fi
 	diff result_ori.txt result_copy.txt > results.log
-	WC=$(cat results.log | wc -l | tr -d " ")
 	DIFF=$(diff result_ori.txt result_copy.txt)
-	if [ "$WC" = "22" ]
-	then
-		echo -e "\033[0;31mONLY POINTERS ADRESSES DIFFER, FORMATING IS GOOD\n\n\t\033[0;32m=>\tALL OTHER TESTS OK\033[0m"
-	elif [ "$DIFF" = "" ]
+	if [ "$DIFF" = "" ]
 	then
 		echo -e "\033[0;32mALL TESTS OK\033[0m"
 	else
