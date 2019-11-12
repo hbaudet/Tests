@@ -36,7 +36,7 @@ else
 	else
 		printf "\n             /|_
             /  ,\     
-         .-'   _,'  < \033[0;31mHaha! KO.\tCheck results.log for details :\033[0m\t\tQUACK!
+         .-'   _,'  < \033[0;31mHaha! KO.\tCheck results.log for details :\033[0m\t\t
         / _   |
        /   )_ |
    ,=='\`.____)_)\n"
