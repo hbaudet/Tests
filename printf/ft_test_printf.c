@@ -6,7 +6,7 @@
 /*   By: hbaudet <hbaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 15:38:39 by hbaudet           #+#    #+#             */
-/*   Updated: 2019/11/12 15:13:55 by hbaudet          ###   ########.fr       */
+/*   Updated: 2019/11/22 17:08:14 by hbaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,15 @@ int	main(int ac, char *av[])
 	unsigned char	ch;
 	int				(*ptr)(const char *, ...);
 	unsigned long	tmp;
+	void			*tmp2;
 
 	tmp = 140732898131832;
+	tmp2 = (void *)0x123;
 	//ptr("\n\npointeur :\t\t|%p\n\n", (void *)tmp);
 	i = 0;
 	(void)ac;
 	ch = 0;
-	if ((val = ft_atoi(av[1])) == 1)
+	if ((val = atoi(av[1])) == 1)
 		ptr = &printf;
 	else if (val == 2)
 		ptr = &ft_printf;
@@ -66,7 +68,7 @@ int	main(int ac, char *av[])
 		c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, -2, 'g'); i++;
 		c[i] = ptr("%d\t%%-c\t\t: |%-c|\n", i, 'g'); i++;
 		ptr("\n\nNON-NULL POINTERS : \n");
-		c[i] = ptr("%d\t%%.p\t\t\t: |%.p|\n", i, (void *)tmp); i++;
+		//c[i] = ptr("%d\t%%.p\t\t\t: |%.p|\n", i, (void *)tmp); i++;
 		c[i] = ptr("%d\t%%-27p\t\t: |%-27p|\n", i, (void *)tmp); i++;
 		c[i] = ptr("%d\t%%-*p\t\t: |%-*p|\n", i, 18, (void *)tmp); i++;
 		c[i] = ptr("%d\t%%14p\t\t: |%14p|\n", i, (void *)tmp); i++;
@@ -176,8 +178,118 @@ int	main(int ac, char *av[])
 		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 15, (void *)tmp); i++;
 		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 16, (void *)tmp); i++;
 		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 16, (void *)tmp); i++;
+		//c[i] = ptr("%d\t%%.p\t\t\t: |%.p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-27p\t\t: |%-27p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t: |%-*p|\n", i, 18, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%14p\t\t: |%14p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%2p\t\t\t: |%2p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 18, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%p\t\t\t: |%p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%24p\t\t: |%24p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-24p\t\t: |%-24p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-17p\t\t\t: |%-17p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-16p\t\t\t: |%-16p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-15p\t\t\t: |%-15p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-14p\t\t\t: |%-14p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-13p\t\t\t: |%-13p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-12p\t\t\t: |%-12p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-11p\t\t\t: |%-11p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-10p\t\t\t: |%-10p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-9p\t\t\t: |%-9p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-8p\t\t\t: |%-8p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-7p\t\t\t: |%-7p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-6p\t\t\t: |%-6p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-5p\t\t\t: |%-5p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-4p\t\t\t: |%-4p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-3p\t\t\t: |%-3p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-2p\t\t\t: |%-2p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-1p\t\t\t: |%-1p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%1p\t\t\t: |%1p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%2p\t\t\t: |%2p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%3p\t\t\t: |%3p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%4p\t\t\t: |%4p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%5p\t\t\t: |%5p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%6p\t\t\t: |%6p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%7p\t\t\t: |%7p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%8p\t\t\t: |%8p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%9p\t\t\t: |%9p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%10p\t\t\t: |%10p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%11p\t\t\t: |%11p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%12p\t\t\t: |%12p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%13p\t\t\t: |%13p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%14p\t\t\t: |%14p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%15p\t\t\t: |%15p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%16p\t\t\t: |%16p|\n", i, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, -17, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, -17, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, -16, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, -16, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, -15, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, -15, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, -14, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, -14, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, -13, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, -13, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, -12, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, -12, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, -11, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, -11, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, -10, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, -10, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, -9, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, -9, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, -8, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, -8, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, -7, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, -7, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, -6, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, -6, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, -5, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, -5, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, -4, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, -4, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, -3, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, -3, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, -2, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, -2, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, -1, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, -1, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 0, (void *)tmp2); i++;
+		//c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 0, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 1, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 1, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 2, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 2, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 3, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 3, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 4, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 4, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 5, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 5, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 6, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 6, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 7, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 7, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 8, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 8, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 9, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 9, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 10, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 10, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 11, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 11, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 12, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 12, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 13, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 13, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 14, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 14, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 15, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 15, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 16, (void *)tmp2); i++;
+		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 16, (void *)tmp2); i++;
 		ptr("\n\nNULL POINTERS : \n");
-		c[i] = ptr("%d\t%%.p\t\t\t: |%.p|\n", i, NULL); i++;
+		//c[i] = ptr("%d\t%%.p\t\t\t: |%.p|\n", i, NULL); i++;
 		c[i] = ptr("%d\t%%-27p\t\t: |%-27p|\n", i, NULL); i++;
 		c[i] = ptr("%d\t%%-*p\t\t: |%-*p|\n", i, 18, NULL); i++;
 		c[i] = ptr("%d\t%%14p\t\t: |%14p|\n", i, NULL); i++;
@@ -288,8 +400,6 @@ int	main(int ac, char *av[])
 		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 15, NULL); i++;
 		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 16, NULL); i++;
 		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 16, NULL); i++;
-
-
 		ptr("\n\nINTEGERS : \n");
 		c[i] = ptr("%d\t%%-8d\t\t: |%-8d|\n", i, 0); i++;
 		c[i] = ptr("%d\t%%d\t\t: |%d|\n", i, 0); i++;
@@ -690,7 +800,6 @@ int	main(int ac, char *av[])
 		c[i] = ptr("%d\t%%*s\t\t\t: |%*s|\n", i, 0, str); i++;
 		c[i] = ptr("%d\t%%-*s\t\t: |%-*s|\n", i, 0, str); i++;
 		c[i] = ptr("%d\t%%s\t\t\t: Hello 42 school! |%s|\n", i, NULL); i++;
-		
 		c[i] = ptr("%d\t%%-16s\t\t\t: |%-16s|\n", i, "Hello World!"); i++;
 		c[i] = ptr("%d\t%%-15s\t\t\t: |%-15s|\n", i, "Hello World!"); i++;
 		c[i] = ptr("%d\t%%-14s\t\t\t: |%-14s|\n", i, "Hello World!"); i++;

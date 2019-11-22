@@ -4,6 +4,7 @@ then
 	make fclean > /dev/null
 else
 	make > /dev/null
+	make clean > /dev/null
 	if [ "$1" = "fsan" ] || [ "$2" = "fsan" ] || [ "$3" = "fsan" ] || [ "$4" = "fsan" ] || [ "$5" = "fsan" ]
 	then
 		var="-fsanitize=address"
