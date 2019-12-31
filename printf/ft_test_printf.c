@@ -12,9 +12,15 @@
 
 #include <stdio.h>
 #include "libftprintf.h"
+#include <limits.h>
 #ifndef STRING
 # define STRING "this is a string"
 #endif
+
+/*
+** AJOUTER INT_MIN !!!!!!
+*/
+
 
 int	main(int ac, char *av[])
 {
@@ -53,6 +59,20 @@ int	main(int ac, char *av[])
 	else
 	{
 		ptr("CHARARCTERS : \n");
+		c[i] = ptr("%d\t%%-8c\t\t: |%-8c|\n", i, 0); i++;
+		c[i] = ptr("%d\t%%c\t\t: |%c|\n", i, 0); i++;
+		c[i] = ptr("%d\t%%-c\t\t: |%-c|\n", i, 0); i++;
+		c[i] = ptr("%d\t%%1c\t\t: |%1c|\n", i, 0); i++;
+		c[i] = ptr("%d\t%%2c\t\t: |%2c|\n", i, 0); i++;
+		c[i] = ptr("%d\t%%-1c\t\t: |%-1c|\n", i, 0); i++;
+		c[i] = ptr("%d\t%%-2c\t\t: |%-2c|\n", i, 0); i++;
+		c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, 0, 0); i++;
+		c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, 1, 0); i++;
+		c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, 2, 0); i++;
+		c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, -0, 0); i++;
+		c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, -1, 0); i++;
+		c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, -2, 0); i++;
+		c[i] = ptr("%d\t%%-c\t\t: |%-c|\n", i, 0); i++;
 		c[i] = ptr("%d\t%%-8c\t\t: |%-8c|\n", i, 'g'); i++;
 		c[i] = ptr("%d\t%%c\t\t: |%c|\n", i, 'g'); i++;
 		c[i] = ptr("%d\t%%-c\t\t: |%-c|\n", i, 'g'); i++;
@@ -503,6 +523,114 @@ int	main(int ac, char *av[])
 		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -0, -2, 0); i++;
 		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -1, -2, 0); i++;
 		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -2, -2, 0); i++;
+		c[i] = ptr("%d\t%%-8d\t\t: |%-8d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%d\t\t: |%d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-d\t\t: |%-d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-.d\t\t: |%-.d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%.d\t\t: |%.d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%0d\t\t: |%0d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%.d\t\t: |%.d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%1d\t\t: |%1d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%2d\t\t: |%2d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-1d\t\t: |%-1d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-2d\t\t: |%-2d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*d\t\t: |%*d|\n", i, 0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*d\t\t: |%*d|\n", i, 1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*d\t\t: |%*d|\n", i, 2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*d\t\t: |%*d|\n", i, -0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*d\t\t: |%*d|\n", i, -1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*d\t\t: |%*d|\n", i, -2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%00d\t\t: |%00d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%01d\t\t: |%01d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%02d\t\t: |%02d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%.d\t\t: |%.d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%.0d\t\t: |%.0d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%.1d\t\t: |%.1d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%.2d\t\t: |%.2d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-.0d\t\t: |%-.0d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-.1d\t\t: |%-.1d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-.2d\t\t: |%-.2d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%1.0d\t\t: |%1.0d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%1.1d\t\t: |%1.1d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%1.2d\t\t: |%1.2d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-1.0d\t\t: |%-1.0d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-1.1d\t\t: |%-1.1d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-1.2d\t\t: |%-1.2d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-2.0d\t\t: |%-2.0d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-2.1d\t\t: |%-2.1d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-2.2d\t\t: |%-2.2d|\n", i, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, 0, 0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, 1, 0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, 2, 0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, -0, 0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, -1, 0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, -2, 0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, 0, 1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, 1, 1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, 2, 1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, -0, 1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, -1, 1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, -2, 1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, 0, 2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, 1, 2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, 2, 2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, -0, 2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, -1, 2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, -2, 2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, 0, -0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, 1, -0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, 2, -0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, -0, -0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, -1, -0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, -2, -0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, 0, -1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, 1, -1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, 2, -1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, -0, -1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, -1, -1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, -2, -1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, 0, -2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, 1, -2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, 2, -2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, -0, -2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, -1, -2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%*.*d\t\t: |%*.*d|\n", i, -2, -2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, 0, 0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, 1, 0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, 2, 0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -0, 0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -1, 0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -2, 0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, 0, 1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, 1, 1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, 2, 1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -0, 1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -1, 1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -2, 1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, 0, 2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, 1, 2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, 2, 2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -0, 2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -1, 2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -2, 2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, 0, -0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, 1, -0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, 2, -0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -0, -0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -1, -0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -2, -0, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, 0, -1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, 1, -1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, 2, -1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -0, -1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -1, -1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -2, -1, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, 0, -2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, 1, -2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, 2, -2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -0, -2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -1, -2, INT_MIN); i++;
+		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -2, -2, INT_MIN); i++;
 		c[i] = ptr("%d\t%%-8d\t\t: |%-8d|\n", i, 4); i++;
 		c[i] = ptr("%d\t%%d\t\t: |%d|\n", i, 4); i++;
 		c[i] = ptr("%d\t%%-d\t\t: |%-d|\n", i, 4); i++;
