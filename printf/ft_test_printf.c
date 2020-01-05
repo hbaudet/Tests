@@ -6,7 +6,7 @@
 /*   By: hbaudet <hbaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 15:38:39 by hbaudet           #+#    #+#             */
-/*   Updated: 2020/01/05 16:21:13 by hbaudet          ###   ########.fr       */
+/*   Updated: 2020/01/05 16:35:44 by hbaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -6294,5 +6294,6 @@ int	main(int ac, char *av[])
 	ptr("\n\nRETURN VALUES :\n");
 	for (int p = 0; p < i ; p++)
 		ptr("%d\t: %d\n", p, c[p]);
+	system ("leaks ft_test_printf.out");
 	return (0);
 }
