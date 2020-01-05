@@ -6,20 +6,17 @@
 /*   By: hbaudet <hbaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 15:38:39 by hbaudet           #+#    #+#             */
-/*   Updated: 2019/11/28 15:07:22 by alienard         ###   ########.fr       */
+/*   Updated: 2020/01/05 16:21:13 by hbaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "../../ft_printf.h"
 #include <limits.h>
+#include <stdlib.h>
 #ifndef STRING
 # define STRING "this is a string"
 #endif
-
-/*
-** AJOUTER INT_MIN !!!!!!
-*/
 
 
 int	main(int ac, char *av[])
