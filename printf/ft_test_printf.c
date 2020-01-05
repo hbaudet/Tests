@@ -6,7 +6,7 @@
 /*   By: hbaudet <hbaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 15:38:39 by hbaudet           #+#    #+#             */
-/*   Updated: 2020/01/05 16:35:44 by hbaudet          ###   ########.fr       */
+/*   Updated: 2020/01/05 17:33:18 by hbaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,31 +45,27 @@ int	main(int ac, char *av[])
 	{
 		while (ch < 255)
 		{
-			if (ch != 10 && ch != 13)
-			{
-				c[i] = ptr("d\t%%c\t\t\t: |%c|\n", i, ch);
-				i++;
-			}
+			c[i] = ptr("d\t%%c\t\t\t: |%c|\n", i, ch); i++;
+			c[i] = ptr("%d\t%%-8c\t\t: |%-8c|\n", i, ch); i++;
+			c[i] = ptr("%d\t%%c\t\t: |%c|\n", i, ch); i++;
+			c[i] = ptr("%d\t%%-c\t\t: |%-c|\n", i, ch); i++;
+			c[i] = ptr("%d\t%%1c\t\t: |%1c|\n", i, ch); i++;
+			c[i] = ptr("%d\t%%2c\t\t: |%2c|\n", i, ch); i++;
+			c[i] = ptr("%d\t%%-1c\t\t: |%-1c|\n", i, ch); i++;
+			c[i] = ptr("%d\t%%-2c\t\t: |%-2c|\n", i, ch); i++;
+			c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, 0, ch); i++;
+			c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, 1, ch); i++;
+			c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, 2, ch); i++;
+			c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, -0, ch); i++;
+			c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, -1, ch); i++;
+			c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, -2, ch); i++;
+			c[i] = ptr("%d\t%%-c\t\t: |%-c|\n", i, ch); i++;
 			ch++;
 		}
 	}
 	else
 	{
 		ptr("CHARARCTERS : \n");
-		c[i] = ptr("%d\t%%-8c\t\t: |%-8c|\n", i, 0); i++;
-		c[i] = ptr("%d\t%%c\t\t: |%c|\n", i, 0); i++;
-		c[i] = ptr("%d\t%%-c\t\t: |%-c|\n", i, 0); i++;
-		c[i] = ptr("%d\t%%1c\t\t: |%1c|\n", i, 0); i++;
-		c[i] = ptr("%d\t%%2c\t\t: |%2c|\n", i, 0); i++;
-		c[i] = ptr("%d\t%%-1c\t\t: |%-1c|\n", i, 0); i++;
-		c[i] = ptr("%d\t%%-2c\t\t: |%-2c|\n", i, 0); i++;
-		c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, 0, 0); i++;
-		c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, 1, 0); i++;
-		c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, 2, 0); i++;
-		c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, -0, 0); i++;
-		c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, -1, 0); i++;
-		c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, -2, 0); i++;
-		c[i] = ptr("%d\t%%-c\t\t: |%-c|\n", i, 0); i++;
 		c[i] = ptr("%d\t%%-8c\t\t: |%-8c|\n", i, 'g'); i++;
 		c[i] = ptr("%d\t%%c\t\t: |%c|\n", i, 'g'); i++;
 		c[i] = ptr("%d\t%%-c\t\t: |%-c|\n", i, 'g'); i++;
@@ -6291,9 +6287,18 @@ int	main(int ac, char *av[])
 	ptr("\033[0m");
 #endif
 
+
 	ptr("\n\nRETURN VALUES :\n");
 	for (int p = 0; p < i ; p++)
 		ptr("%d\t: %d\n", p, c[p]);
-	system ("leaks ft_test_printf.out");
+
+#ifdef LEAKS
+
+	if (ptr == &ft_printf)
+		while (1);
+#endif
+
+
 	return (0);
 }
+

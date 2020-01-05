@@ -11,17 +11,27 @@ else
 	fi
 	if [ "$1" = "bonus" ] || [ "$2" = "bonus" ] || [ "$3" = "bonus" ] || [ "$4" = "bonus" ] || [ "$5" = "bonus" ]
 	then
-		gcc -Wall -Werror -Wextra "$var" -D BONUS Tests/printf/ft_test_printf.c -L./ -lftprintf -o ft_test_printf.out  #2> /dev/null
-	else
-		gcc -Wall -Werror -Wextra "$var" Tests/printf/ft_test_printf.c -L./ -lftprintf -o ft_test_printf.out #2> /dev/null
+		if [ "$1" = "leaks" ] || [ "$2" = "leaks" ] || [ "$3" = "leaks" ] || [ "$4" = "leaks" ] || [ "$5" = "leaks" ] || [ "$6" = "leaks" ]
+		then
+		gcc -Wall -Werror -Wextra "$var" -D BONUS -D LEAKS Tests/printf/ft_test_printf.c -L./ -lftprintf -o ft_test_printf.out  2> /dev/null
+		else
+		gcc -Wall -Werror -Wextra "$var" -D BONUS Tests/printf/ft_test_printf.c -L./ -lftprintf -o ft_test_printf.out  2> /dev/null
+		fi
+	else		
+		if [ "$1" = "leaks" ] || [ "$2" = "leaks" ] || [ "$3" = "leaks" ] || [ "$4" = "leaks" ] || [ "$5" = "leaks" ] || [ "$6" = "leaks" ]
+		then
+			gcc -Wall -Werror -Wextra "$var" -D LEAKS Tests/printf/ft_test_printf.c -L./ -lftprintf -o ft_test_printf.out 2> /dev/null
+		else
+			gcc -Wall -Werror -Wextra "$var" Tests/printf/ft_test_printf.c -L./ -lftprintf -o ft_test_printf.out 2> /dev/null
+		fi
 	fi
 	if [ "$1" = "char" ] || [ "$2" = "char" ] || [ "$3" = "char" ] || [ "$4" = "char" ] || [ "$5" = "char" ]
 	then
-		./ft_test_printf.out 1 1 > result_ori.txt #2> /dev/null
-		./ft_test_printf.out 2 1 > result_copy.txt# 2> /dev/null
+		./ft_test_printf.out 1 1 > result_ori.txt 2> /dev/null
+		./ft_test_printf.out 2 1 > result_copy.txt 2> /dev/null
 	else
-		./ft_test_printf.out 1 0 > result_ori.txt #2> /dev/null
-		./ft_test_printf.out 2 0 > result_copy.txt #2> /dev/null
+		./ft_test_printf.out 1 0 > result_ori.txt 2> /dev/null
+		./ft_test_printf.out 2 0 > result_copy.txt 2> /dev/null
 	fi
 	ORI=$(cat result_ori.txt)
 	COPY=$(cat result_copy.txt)
