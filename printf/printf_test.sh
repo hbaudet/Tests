@@ -11,9 +11,9 @@ else
 	fi
 	if [ "$1" = "bonus" ] || [ "$2" = "bonus" ] || [ "$3" = "bonus" ] || [ "$4" = "bonus" ] || [ "$5" = "bonus" ]
 	then
-		gcc -Wall -Werror -Wextra "$var" -D BONUS ft_test_printf.c libftprintf.a -o ft_test_printf.out  2> /dev/null
+		gcc -Wall -Werror -Wextra "$var" -D BONUS ft_test_printf.c ../..libftprintf.a -o ft_test_printf.out  2> /dev/null
 	else
-		gcc -Wall -Werror -Wextra "$var" ft_test_printf.c libftprintf.a -o ft_test_printf.out 2> /dev/null
+		gcc -Wall -Werror -Wextra "$var" ft_test_printf.c ../..libftprintf.a -o ft_test_printf.out 2> /dev/null
 	fi
 	if [ "$1" = "char" ] || [ "$2" = "char" ] || [ "$3" = "char" ] || [ "$4" = "char" ] || [ "$5" = "char" ]
 	then

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "libftprintf.h"
+#include "../../ft_printf.h"
 #include <limits.h>
 #ifndef STRING
 # define STRING "this is a string"
