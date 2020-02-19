@@ -11,13 +11,13 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "../../ft_printf.h"
 #include <limits.h>
 #include <stdlib.h>
 #ifndef STRING
 # define STRING "this is a string"
 #endif
 
+int				ft_printf(const char *fmt, ...);
 
 int	main(int ac, char *av[])
 {
