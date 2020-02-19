@@ -34,7 +34,6 @@ int	main(int ac, char *av[])
 	tmp = 140732898131832;
 	tmp2 = (void *)0x123;
 	//ptr("\n\npointeur :\t\t|%p\n\n", (void *)tmp);
-	i = 0;
 	(void)ac;
 	ch = 0;
 	if ((val = atoi(av[1])) == 1)
@@ -43,6 +42,7 @@ int	main(int ac, char *av[])
 		ptr = &ft_printf;
 	if (av[2][0] == '1')
 	{
+		i = 48;
 		while (ch < 255)
 		{
 			c[i] = ptr("d\t%%c\t\t\t: |%c|\n", i, ch); i++;
@@ -65,6 +65,7 @@ int	main(int ac, char *av[])
 	}
 	else
 	{
+		i = 70;
 		ptr("CHARARCTERS : \n");
 		c[i] = ptr("%d\t%%-8c\t\t: |%-8c|\n", i, 'g'); i++;
 		c[i] = ptr("%d\t%%c\t\t: |%c|\n", i, 'g'); i++;
@@ -80,7 +81,7 @@ int	main(int ac, char *av[])
 		c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, -1, 'g'); i++;
 		c[i] = ptr("%d\t%%*c\t\t: |%*c|\n", i, -2, 'g'); i++;
 		c[i] = ptr("%d\t%%-c\t\t: |%-c|\n", i, 'g'); i++;
-		ptr("\n\n-NON-NULL POINTERS : \n");
+		c[i] = ptr("\n\n-NON-NULL POINTERS : \n"); i++;
 		c[i] = ptr("%d\t%%-27p\t\t: |%-27p|\n", i, (void *)tmp); i++;
 		c[i] = ptr("%d\t%%-*p\t\t: |%-*p|\n", i, 18, (void *)tmp); i++;
 		c[i] = ptr("%d\t%%14p\t\t: |%14p|\n", i, (void *)tmp); i++;
@@ -297,7 +298,7 @@ int	main(int ac, char *av[])
 		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 15, (void *)tmp2); i++;
 		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 16, (void *)tmp2); i++;
 		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 16, (void *)tmp2); i++;
-		ptr("-\n\nNULL POINTERS : \n");
+		c[i] = ptr("-\n\nNULL POINTERS : \n"); i++;
 		c[i] = ptr("%d\t%%-27p\t\t: |%-27p|\n", i, NULL); i++;
 		c[i] = ptr("%d\t%%-*p\t\t: |%-*p|\n", i, 18, NULL); i++;
 		c[i] = ptr("%d\t%%14p\t\t: |%14p|\n", i, NULL); i++;
@@ -407,7 +408,7 @@ int	main(int ac, char *av[])
 		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 15, NULL); i++;
 		c[i] = ptr("%d\t%%*p\t\t\t: |%*p|\n", i, 16, NULL); i++;
 		c[i] = ptr("%d\t%%-*p\t\t\t: |%-*p|\n", i, 16, NULL); i++;
-		ptr("\n\nINTEGERS : \n");
+		c[i] = ptr("\n\nINTEGERS : \n"); i++;
 		c[i] = ptr("%d\t%%-8d\t\t: |%-8d|\n", i, 0); i++;
 		c[i] = ptr("%d\t%%d\t\t: |%d|\n", i, 0); i++;
 		c[i] = ptr("%d\t%%-d\t\t: |%-d|\n", i, 0); i++;
@@ -864,7 +865,7 @@ int	main(int ac, char *av[])
 		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -0, -2, -4); i++;
 		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -1, -2, -4); i++;
 		c[i] = ptr("%d\t%%-*.*d\t\t: |%-*.*d|\n", i, -2, -2, -4); i++;
-		ptr("\n\nUNSIGNED INTS : \n");
+		c[i] = ptr("\n\nUNSIGNED INTS : \n"); i++;
 		c[i] = ptr("%d\t%%.2u\t\t: |%.2u|\n", i, u); i++;
 		c[i] = ptr("%d\t%%010.10u\t: |%010.10u|\n", i, u); i++;
 		c[i] = ptr("%d\t%%-10.10u\t: |%-10.10u|\n", i, u); i++;
@@ -874,7 +875,7 @@ int	main(int ac, char *av[])
 		c[i] = ptr("%d\t%%2.0u\t\t: |%2.0u|\n", i, 0); i++;
 		c[i] = ptr("%d\t%%03.0u\t\t: |%03.0u|\n", i, 0); i++;
 		c[i] = ptr("%d\t%%.0u\t\t: |%.0u|\n", i, 15); i++;
-		ptr("\n\nHEXA : \n");
+		c[i] = ptr("\n\nHEXA : \n"); i++;
 		c[i] = ptr("%d\t%%x\t\t: |%x|\n", i, 2147483647); i++;
 		c[i] = ptr("%d\t%%X\t\t: |%X|\n", i, 2147483647); i++;
 		c[i] = ptr("%d\t%%x\t\t: |%x|\n", i, 0); i++;
@@ -907,7 +908,7 @@ int	main(int ac, char *av[])
 		c[i] = ptr("%d\t%%.0x\t\t: |%.0x|\n", i, 0); i++;
 		c[i] = ptr("%d\t%%2.0x\t\t: |%2.0x|\n", i, 0); i++;
 		c[i] = ptr("%d\t%%03.0x\t\t: |%03.0x|\n", i, 0); i++;
-		ptr("\n\nSTRINGS : \n");
+		c[i] = ptr("\n\nSTRINGS : \n"); i++;
 		c[i] = ptr("%d\t%%.4s\t\t: |%.4s|\n", i, NULL); i++;
 		c[i] = ptr("%d\t%%.*s\t\t: |%.*s|\n", i, 8, str); i++;
 		c[i] = ptr("%d\t%%25s\t\t: |%25s|\n", i, str); i++;
@@ -5971,7 +5972,7 @@ int	main(int ac, char *av[])
 		c[i] = ptr("%d\t%%-*.*s\t\t\t: |%-*.*s|\n", i, 15, -13, NULL); i++;
 		c[i] = ptr("%d\t%%-*.*s\t\t\t: |%-*.*s|\n", i, 15, -14, NULL); i++;
 		c[i] = ptr("%d\t%%-*.*s\t\t\t: |%-*.*s|\n", i, 15, -15, NULL); i++;
-		ptr("\n\n%% : \n");
+		c[i] = ptr("\n\n%% : \n"); i++;
 		c[i] = ptr("%d\t%%5%%\t\t\t: |%5%|\n", i); i++;
 		c[i] = ptr("%d\t%%-5%%\t\t: |%-5%|\n", i); i++;
 		c[i] = ptr("%d\t%%12%%\t\t: |%12%|\n", i); i++;
@@ -6249,7 +6250,7 @@ int	main(int ac, char *av[])
 		c[i] = ptr("%d\t%%*.*%%\t\t\t: |%*.*%|\n", i, 3, 4); i++;
 	}
 #ifdef BONUS
-	ptr("\n\n\033[1;34mBONUS\n");
+	c[i] = ptr("\n\n\033[1;34mBONUS\n"); i++;
 	c[i] = ptr("%d\t%%\t\t\t: |%   %|\n", i); i++;
 	c[i] = ptr("%d\t%%\t\t\t: |%0 d|\n", i, 42); i++;
 	c[i] = ptr("%d\t%%\t\t\t: |%000   %|\n", i, "test"); i++;
@@ -6287,9 +6288,14 @@ int	main(int ac, char *av[])
 	ptr("\033[0m");
 #endif
 
+	int p;
 
 	ptr("\n\nRETURN VALUES :\n");
-	for (int p = 0; p < i ; p++)
+	if (av[2][0] == '1')
+		p = 47;
+	else
+		p = 69;
+	while (++p < i)
 		ptr("%d\t: %d\n", p, c[p]);
 
 #ifdef LEAKS
