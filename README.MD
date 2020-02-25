@@ -17,11 +17,16 @@ leaks
 
 THANKS :
 
-OROBERTS\n
+OROBERTS
+
 ALIENARD
+
 LOTHIEVE
+
 MBRIGNOL
+
 MAZOISE
+
 [MILLEFEUILLE](http://github.com/mop3)
 
 # GNL
