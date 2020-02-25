@@ -6248,7 +6248,6 @@ int	main(int ac, char *av[])
 		c[i] = ptr("%d\t%%-3.4%%\t\t\t: |%-3.4%|\n", i); i++;
 		c[i] = ptr("%d\t%%-*.*%%\t\t\t: |%-*.*%|\n", i, 3, 4); i++;
 		c[i] = ptr("%d\t%%*.*%%\t\t\t: |%*.*%|\n", i, 3, 4); i++;
-	}
 #ifdef BONUS
 	c[i] = ptr("\n\n\033[1;34mBONUS\n"); i++;
 	c[i] = ptr("%d\t%%\t\t\t: |%   %|\n", i); i++;
@@ -6287,6 +6286,7 @@ int	main(int ac, char *av[])
 	c[i] = ptr("30 This is a float : %.0f\n\n", 0.0); i++;
 	ptr("\033[0m");
 #endif
+	}
 
 	int p;
 
