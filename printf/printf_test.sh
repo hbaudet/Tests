@@ -55,4 +55,5 @@ else
 		fi
 	fi
 		printf "\t\t\t\t\t\t\t\t\tgithub/hbaudet\n"
+	if [ "$LOG" == "1" ]; then cat results.log; fi
 fi
